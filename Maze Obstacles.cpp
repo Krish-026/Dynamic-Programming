@@ -1,3 +1,4 @@
+// https : // www.codingninjas.com/codestudio/problems/maze-obstacles_977241?source=youtube&campaign=striver_dp_videos&utm_source=youtube&utm_medium=affiliate&utm_campaign=striver_dp_videos%27
 #include <bits/stdc++.h>
 #define ll long long
 #define vi vector<int>
