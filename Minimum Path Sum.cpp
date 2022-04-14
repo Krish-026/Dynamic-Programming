@@ -54,6 +54,37 @@ using namespace std;
 //     return dp[i][j] = min(left, up);
 // }
 
+// Tabulation
+// int fun(vector<vector<int>> &arr, int m, int n)
+// {
+//     vector<vector<int>> dp(m + 1, vector<int>(n + 1, -1));
+//     dp[0][0] = arr[0][0];
+//     rep(i, 0, m)
+//     {
+//         rep(j, 0, n)
+//         {
+//             if (i == 0 and j == 0)
+//             {
+//                 dp[0][0] = arr[0][0];
+//                 continue;
+//             }
+//             int up = 0, left = 0;
+//             up = left = arr[i][j];
+//             if (i - 1 >= 0)
+//                 up += dp[i - 1][j];
+//             else
+//                 up += 1e9;
+//             if (j - 1 >= 0)
+//                 left += dp[i][j - 1];
+//             else
+//                 left += 1e9;
+//             dp[i][j] = min(up, left);
+//         }
+//     }
+//     return dp[m][n];
+// }
+
+// Space Optimization
 int fun(vector<vector<int>> &arr, int m, int n)
 {
     vector<vector<int>> dp(m + 1, vector<int>(n + 1, -1));
@@ -82,6 +113,7 @@ int fun(vector<vector<int>> &arr, int m, int n)
     }
     return dp[m][n];
 }
+
 int minSumPath(vector<vector<int>> &grid)
 {
     int m = grid.size();
