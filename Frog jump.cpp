@@ -23,7 +23,8 @@
         cout << a[i] << " ";
 #define Mod 1000000007
 using namespace std;
-// Recursion
+
+//-----------------------Recursion-----------------------------------------
 // int minEnergy(int n, vector<int> &arr)
 // {
 //     if (n == 0)
@@ -33,10 +34,6 @@ using namespace std;
 //     if (n > 1)
 //         twojump = minEnergy(n - 2, arr) + abs(arr[n] - arr[n - 2]);
 //     return min(onejump, twojump);
-// }
-// int frogJump(int n, vector<int> &heights)
-// {
-//     return minEnergy(n - 1, heights);
 // }
 
 //-----------------------Memoization-----------------------------------------
