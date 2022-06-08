@@ -24,30 +24,54 @@
 #define Mod 1000000007
 using namespace std;
 
-int K_jump(vl &arr, int n, int k)
+// Recursion
+int minEnergy(vector<int> &h, int n, int k)
 {
-    vl dp(n, 0);
-    dp[0] = 0;
-    rep(i, 1, n - 1)
+    if (n == 0)
+        return 0;
+    int minJump = INT_MAX;
+    rep(i, 1, k)
     {
-        int minJump = INT_MAX;
-        rep(j, 1, k)
+        // int mink = INT_MAX;
+        if (n - i >= 0)
         {
-            if (i - j >= 0)
-            {
-                int jump = dp[i - j] + abs(arr[i] - arr[i - j]);
-                minJump = min(minJump, jump);
-            }
+            // mink = minEnergy(h, n - i, k) + abs(h[n] - h[n - i]);
+            // minJump = min(mink, minJump);
+            minJump = min(minEnergy(h, n - i, k) + abs(h[n] - h[n - i]), minJump);
         }
-        dp[i] = minJump;
     }
-    return dp[n - 1];
+    return minJump;
 }
+int K_jump(vector<int> &heights, int n, int jump)
+{
+    return minEnergy(heights, n - 1, jump);
+}
+
+// Tabulation
+// int K_jump(vl &arr, int n, int k)
+// {
+//     vl dp(n, 0);
+//     dp[0] = 0;
+//     rep(i, 1, n - 1)
+//     {
+//         int minJump = INT_MAX;
+//         rep(j, 1, k)
+//         {
+//             if (i - j >= 0)
+//             {
+//                 int jump = dp[i - j] + abs(arr[i] - arr[i - j]);
+//                 minJump = min(minJump, jump);
+//             }
+//         }
+//         dp[i] = minJump;
+//     }
+//     return dp[n - 1];
+// }
 void solve()
 {
     int n, jump;
     cin >> n >> jump;
-    vl height(n);
+    vi height(n);
     input(height, 0, n - 1);
     cout << K_jump(height, n, jump);
 }
